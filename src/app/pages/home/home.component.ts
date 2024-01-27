@@ -67,7 +67,7 @@ export class HomeComponent {
           ? skins
               .filter((skin) => new RegExp(q, 'i').test(skin.name))
               .sort(this.comparator)
-          : skins.sort(this.comparator);
+          : skins;
 
         this.endIndex += this.pageSize;
 
