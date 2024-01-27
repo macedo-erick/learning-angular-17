@@ -1,0 +1,15 @@
+.cards__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
+}
+
+.search__field {
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+button {
+  font-size: 0.8rem;
+}

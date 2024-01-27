@@ -1,0 +1,39 @@
+@if (filteredSkins$ | async; as skins) {
+  <section class="d-flex justify-content-end mb-4">
+    <input
+      placeholder="Search skin by name..."
+      class="search__field px-3 py-4 rounded border-0 shadow w-25"
+      [formControl]="searchFieldControl"
+    />
+  </section>
+
+  @if (skins.length) {
+    <ul class="cards__container m-0 p-0 pb-4">
+      @for (skin of skins; track skin.id) {
+        @defer (on viewport) {
+          <app-skin-card [skin]="skin" />
+        } @placeholder {
+          <span> Loading... </span>
+        }
+      }
+    </ul>
+
+    <div class="d-flex justify-content-center align-items center mb-4">
+      <button
+        type="button"
+        class="bg--secondary p-3 text-white fw-bolder rounded border-0"
+        (click)="pageTrigger$.next(null)"
+      >
+        Load more skins
+      </button>
+    </div>
+  } @else {
+    <ng-container *ngTemplateOutlet="noResultsTemplate"></ng-container>
+  }
+} @else {
+  <ng-container *ngTemplateOutlet="noResultsTemplate"></ng-container>
+}
+
+<ng-template #noResultsTemplate>
+  <p>No skins were found!</p>
+</ng-template>

@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+:root {
+  --primary-color: #000123;
+  --secondary-color: #303358;
+  --tertiary-color: #3a476a;
+  --quaternary-color: #d45500;
+  --quinary-color: #ffbd6c;
+}
+
+.bg--primary {
+  background-color: var(--primary-color);
+}
+
+.bg--secondary {
+  background-color: var(--secondary-color);
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+.text-secondary {
+  color: var(--quaternary-color) !important;
+}

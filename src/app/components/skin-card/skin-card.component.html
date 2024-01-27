@@ -1,0 +1,32 @@
+<li
+  class="card__container bg--secondary w-100 h-100 rounded p-3 d-flex flex-column gap-2"
+>
+  <h3 class="text-white fs-6 text-center fw-bolder m-0">
+    {{ skin.name }}
+  </h3>
+
+  <div
+    class="collection__container d-flex justify-content-center align-items-center gap-2"
+  >
+    @for (collection of skin.collections; track collection.id) {
+      <h4 class="collection__name text-secondary text-center fw-bolder m-0">
+        {{ collection.name }}
+      </h4>
+
+      <img
+        [ngSrc]="collection.image"
+        [alt]="collection.name"
+        width="30"
+        height="23"
+      />
+    }
+  </div>
+
+  <h4
+    class="text-white rarity__name text-center fw-bolder rounded p-1"
+    [style.background-color]="skin.rarity.color"
+  >
+    {{ skin.rarity.name }}
+  </h4>
+  <img [ngSrc]="skin.image" [alt]="skin.name" width="300" height="225" />
+</li>
